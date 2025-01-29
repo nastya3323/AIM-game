@@ -39,7 +39,11 @@ gameBoard.addEventListener('click', (event) => {
     }
 })
 
-restartButton.addEventListener('click', restartGame)
+restartButton.addEventListener('click', restartGame);
+
+restartButton.addEventListener('mouseenter', () => {
+    restartButton.style.transitionDelay = '0s'; 
+});
 
 function startGame() {
     score = 0;
@@ -116,6 +120,7 @@ function getRandomColor() {
 
 function restartGame() {
     restartButton.classList.add('hide');
+    restartButton.style.transitionDelay = '0.5s'; 
 
     screens[1].classList.remove('up');
 }
