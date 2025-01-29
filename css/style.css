@@ -184,10 +184,10 @@ h1 {
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   font-family: sans-serif;
-  transition: all 0.3s;
-  transition-delay: 0.5s;
+  transition: all 0.3s 0.5s;
 }
 .restart:hover {
   border: 2px solid #16d9e3;
   color: #16d9e3;
+  transition: all 0s 0s;
 }/*# sourceMappingURL=style.css.map */
