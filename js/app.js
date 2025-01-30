@@ -4,6 +4,7 @@ const timeList = document.querySelector('#time-list');
 const timeDisplay = document.querySelector('#time');
 const gameBoard = document.querySelector('#board');
 const restartButton = document.querySelector('.restart');
+const clickSound = document.querySelector('#click-sound');
 
 if (!startButton || !screens.length || !timeList || !timeDisplay || !gameBoard || !restartButton) {
     console.error('Не удалось получить один или несколько элементов из DOM.');
@@ -34,6 +35,9 @@ timeList.addEventListener('click', (event) => {
 // Обработчик события для выбора времени
 gameBoard.addEventListener('click', (event) => {
     if (event.target.classList.contains('circle')) {
+        clickSound.currentTime = 0; // Сбрасываем время воспроизведения
+        clickSound.play(); // Воспроизводим звук
+
         score++;
         moveCircle(event.target);
     }
@@ -42,7 +46,7 @@ gameBoard.addEventListener('click', (event) => {
 restartButton.addEventListener('click', restartGame);
 
 restartButton.addEventListener('mouseenter', () => {
-    restartButton.style.transitionDelay = '0s'; 
+    restartButton.style.transitionDelay = '0s';
 });
 
 function startGame() {
@@ -120,9 +124,8 @@ function getRandomColor() {
 
 function restartGame() {
     restartButton.classList.add('hide');
-    restartButton.style.transitionDelay = '0.5s'; 
+    restartButton.style.transitionDelay = '0.5s';
 
     screens[1].classList.remove('up');
 }
-
 
