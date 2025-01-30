@@ -191,4 +191,12 @@ h1 {
   border: 2px solid #16d9e3;
   color: #16d9e3;
   transition: all 0s 0s;
+}
+
+i {
+  position: absolute;
+  right: 100px;
+  top: 60px;
+  font-size: 30px;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

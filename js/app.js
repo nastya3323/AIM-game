@@ -5,6 +5,8 @@ const timeDisplay = document.querySelector('#time');
 const gameBoard = document.querySelector('#board');
 const restartButton = document.querySelector('.restart');
 const clickSound = document.querySelector('#click-sound');
+const volumeControl = document.querySelector('#volume-control');
+const volumeIcon = document.querySelector('#volume-icon');
 
 if (!startButton || !screens.length || !timeList || !timeDisplay || !gameBoard || !restartButton) {
     console.error('Не удалось получить один или несколько элементов из DOM.');
@@ -16,6 +18,7 @@ const colors = ['#F8D800', '#F55555', '#a80077', '#9708CC', '#3CD500', '#92FFC0'
 let timeRemaining = 0;
 let score = 0;
 let intervalId;
+let isMuted = false; // Состояние звука, по умолчанию звук включен
 
 startButton.addEventListener('click', (event) => {
     event.preventDefault();
@@ -48,6 +51,18 @@ restartButton.addEventListener('click', restartGame);
 restartButton.addEventListener('mouseenter', () => {
     restartButton.style.transitionDelay = '0s';
 });
+
+volumeControl.addEventListener('click', () => {
+    isMuted = !isMuted;
+
+    if (isMuted) {
+        volumeIcon.classList.add('bx-volume-mute');
+        clickSound.muted = true;
+    } else {
+        volumeIcon.classList.remove('bx-volume-mute');
+        clickSound.muted = false;
+    }
+})
 
 function startGame() {
     score = 0;
